@@ -7,11 +7,13 @@
 #include <chrono>
 #include <filesystem>
 
-int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Algorithm Visualizer");
+int WinMain() {
+    const int WIDTH = 800;
+    const int HEIGHT = 600;
+    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Algorithm Visualizer");
     auto icon = sf::Image();
 
-    if (!icon.loadFromFile(std::filesystem::current_path().parent_path().parent_path().u8string() + "/assets/sorting.jpeg"))
+    if (!icon.loadFromFile("assets/sorting.jpeg"))
     {
         // Error handling...
         std::cout << "Couldn't load image" << std::endl;
@@ -22,7 +24,7 @@ int main() {
     for(int i=0; i<100; i++) 
     {
         DataBar dataBar(i+10);
-        dataBar.setPosition(100 + i*6 , 800);
+        dataBar.setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
         dataBars.push_back(dataBar);
     }
     unsigned seed = std::chrono::system_clock::now()

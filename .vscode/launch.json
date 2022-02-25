@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch algorithm-visualizer",
+            "name": "Mac Debug",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/build/bin/algorithm-visualizer",
@@ -15,7 +15,44 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb",
-            "preLaunchTask": "build"
+            "preLaunchTask": "build debug"
+        },
+        {
+            "name": "Mac Release",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/algorithm-visualizer",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}/build/bin/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "build release"
+        },
+        {
+            "name": "Windows Debug",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}\\build\\bin\\algorithm-visualizer.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}\\build\\bin\\",
+            "environment": [],
+            "console": "externalTerminal",
+            "preLaunchTask": "build debug"
+        },
+        {
+            "name": "Windows Release",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}\\build\\bin\\algorithm-visualizer.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}\\build\\bin\\",
+            "environment": [],
+            "console": "externalTerminal",
+            "preLaunchTask": "build release"
         }
     ]
 }

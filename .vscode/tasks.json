@@ -3,27 +3,51 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "build",
+			"label": "build debug",
 			"command": "conan",
 			"args": [
 				"install",
 				"..",
+				"-s",
+				"build_type=Debug",
+				"--build=missing",
 				"&&",
 				"cmake",
 				"..",
 				"&&",
 				"cmake",
 				"--build",
-				"."
+				".",
+				"--config",
+				"Debug"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}/build"
-			},
-			"problemMatcher": [
-				"$gcc"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "build release",
+			"command": "conan",
+			"args": [
+				"install",
+				"..",
+				"-s",
+				"build_type=Release",
+				"--build=missing",
+				"&&",
+				"cmake",
+				"..",
+				"&&",
+				"cmake",
+				"--build",
+				".",
+				"--config",
+				"Release"
 			],
-			"group": "build",
-			"detail": "compiler: /usr/bin/clang"
+			"options": {
+				"cwd": "${workspaceFolder}/build"
+			}
 		}
 	]
 }
