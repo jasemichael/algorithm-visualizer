@@ -1,13 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "DataBar.hpp"
+#include "utils/randomize.hpp"
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <random>
-#include <chrono>
 #include <filesystem>
 
-int WinMain() {
+int main() {
     const int WIDTH = 800;
     const int HEIGHT = 600;
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Algorithm Visualizer");
@@ -20,17 +18,12 @@ int WinMain() {
     } else {
         window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     }
-    std::vector<DataBar> dataBars;
+    std::vector<int> dataBars;
     for(int i=0; i<100; i++) 
     {
-        DataBar dataBar(i+10);
-        dataBar.setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
-        dataBars.push_back(dataBar);
+        dataBars.push_back(i+10);
     }
-    unsigned seed = std::chrono::system_clock::now()
-        .time_since_epoch()
-        .count();
-    shuffle(dataBars.begin(), dataBars.end(), std::default_random_engine(seed));
+    randomize(dataBars);
     while (window.isOpen())
     {
         sf::Event event;
@@ -43,7 +36,9 @@ int WinMain() {
         window.clear();
         for(int i=0; i<100; i++)
         {
-            window.draw(dataBars[i]);
+            DataBar dataBar(dataBars[i]);
+            dataBar.setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
+            window.draw(dataBar);
         }
         window.display();
     }

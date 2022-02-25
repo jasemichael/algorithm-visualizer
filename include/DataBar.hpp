@@ -6,6 +6,7 @@
 class DataBar: public sf::RectangleShape {
     
     public:
+        DataBar() { };
         DataBar(float height);
         DataBar(float height, sf::Color color);
 };
