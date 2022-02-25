@@ -10,7 +10,7 @@ set(SOURCES
     src/utils/randomize.cpp include/utils/randomize.hpp
     )
 # add the executable
-add_executable(algorithm-visualizer ${SOURCES})
+add_executable(algorithm-visualizer WIN32 MACOSX_BUNDLE ${SOURCES})
 # target_compile_features(algorithm-visualizer PRIVATE cxx_std_17)
 set_property(TARGET algorithm-visualizer PROPERTY CXX_STANDARD 17)
 target_include_directories(algorithm-visualizer PRIVATE "${PROJECT_SOURCE_DIR}/include")
