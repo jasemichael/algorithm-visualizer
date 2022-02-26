@@ -23,7 +23,6 @@ int main() {
     for(int i=0; i<100; i++) {
         dataBars.push_back(DataBar(i+10, false));
     }
-    std::cout << dataBars.begin() << std::endl;
     randomize(dataBars);
     while (window.isOpen())
     {
