@@ -19,9 +19,10 @@ int main() {
     } else {
         window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     }
-    std::vector<DataBar> dataBars;
+    std::vector<DataBar *> dataBars;
     for(int i=0; i<100; i++) {
-        dataBars.push_back(DataBar(i+10, false));
+        DataBar *db = new DataBar(i+10, false);
+        dataBars.push_back(db);
     }
     randomize(dataBars);
     while (window.isOpen())
@@ -36,10 +37,9 @@ int main() {
         window.clear();
         for(int i=0; i<dataBars.size(); i++)
         {
-            dataBars[i].setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
-            window.draw(dataBars[i]);
+            dataBars[i]->setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
+            window.draw(*dataBars[i]);
         }
-        
         //bubbleSort(dataBars, window);
         window.display();
     }

@@ -13,7 +13,6 @@ class DataBar: public sf::RectangleShape {
         DataBar(float height, bool active);
         DataBar(float height, sf::Color color, bool active);
         ~DataBar() {};
-        DataBar operator=(const DataBar &);
         friend std::ostream& operator<<(std::ostream& os, DataBar & db);
         int getHeight();
         void setActive(bool active);

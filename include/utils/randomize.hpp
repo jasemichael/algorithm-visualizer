@@ -5,5 +5,5 @@
 #include <random>
 #include <chrono>
 #include "DataBar.hpp"
-void randomize(std::vector<DataBar>& a);
+void randomize(std::vector<DataBar*>& a);
 #endif

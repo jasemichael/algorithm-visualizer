@@ -30,11 +30,6 @@ void DataBar::setActive(bool active)
     else this->setFillColor(this->deactive_color);
 }
 
-DataBar DataBar::operator=(const DataBar & db) 
-{
-    return db;
-}
-
 std::ostream& operator<<(std::ostream& os, DataBar & db)
 {
     os << db.getHeight();
