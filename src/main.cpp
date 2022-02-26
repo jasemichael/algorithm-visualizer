@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "DataBar.hpp"
 #include "utils/randomize.hpp"
+#include "algorithms/bubbleSort.hpp"
 #include <iostream>
 #include <vector>
 #include <filesystem>
@@ -18,11 +19,11 @@ int main() {
     } else {
         window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     }
-    std::vector<int> dataBars;
-    for(int i=0; i<100; i++) 
-    {
-        dataBars.push_back(i+10);
+    std::vector<DataBar> dataBars;
+    for(int i=0; i<100; i++) {
+        dataBars.push_back(DataBar(i+10, false));
     }
+    std::cout << dataBars.begin() << std::endl;
     randomize(dataBars);
     while (window.isOpen())
     {
@@ -34,12 +35,13 @@ int main() {
         }
 
         window.clear();
-        for(int i=0; i<100; i++)
+        for(int i=0; i<dataBars.size(); i++)
         {
-            DataBar dataBar(dataBars[i]);
-            dataBar.setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
-            window.draw(dataBar);
+            dataBars[i].setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
+            window.draw(dataBars[i]);
         }
+        
+        //bubbleSort(dataBars, window);
         window.display();
     }
 

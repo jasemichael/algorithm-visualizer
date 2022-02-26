@@ -1,5 +1,9 @@
 #ifndef RANDOMIZE_HPP
 #define RANDOMIZE_HPP
 #include <vector>
-void randomize(std::vector<int>& a);
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include "DataBar.hpp"
+void randomize(std::vector<DataBar>& a);
 #endif

@@ -8,6 +8,8 @@ set(SOURCES
     src/main.cpp 
     src/DataBar.cpp include/DataBar.hpp 
     src/utils/randomize.cpp include/utils/randomize.hpp
+    src/algorithms/bubbleSort.cpp include/algorithms/bubbleSort.hpp
+    src/utils/sleep.cpp include/utils/sleep.hpp
     )
 # add the executable
 add_executable(algorithm-visualizer WIN32 MACOSX_BUNDLE ${SOURCES})
