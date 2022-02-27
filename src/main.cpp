@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <filesystem>
+#include <thread>
 
 int main() {
     const int WIDTH = 800;
@@ -25,6 +26,15 @@ int main() {
         dataBars.push_back(db);
     }
     randomize(dataBars);
+    window.clear();
+    for(int i=0; i<dataBars.size(); i++)
+    {
+        dataBars[i]->setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
+        window.draw(*dataBars[i]);
+    }
+
+    std::thread first(bubbleSort, &dataBars, &window);
+    window.display();
     while (window.isOpen())
     {
         sf::Event event;
@@ -33,16 +43,14 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
         window.clear();
         for(int i=0; i<dataBars.size(); i++)
         {
             dataBars[i]->setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
             window.draw(*dataBars[i]);
         }
-        //bubbleSort(dataBars, window);
         window.display();
     }
-
+    first.join();
     return 0;
 }
