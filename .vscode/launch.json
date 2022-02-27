@@ -39,7 +39,6 @@
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}\\build\\bin\\",
             "environment": [],
-            "console": "internalConsole",
             "preLaunchTask": "build debug"
         },
         {
@@ -51,7 +50,6 @@
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}\\build\\bin\\",
             "environment": [],
-            "console": "internalConsole",
             "preLaunchTask": "build release"
         }
     ]

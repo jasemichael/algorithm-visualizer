@@ -8,13 +8,8 @@ void bubbleSort(std::vector<DataBar *>* a, sf::RenderWindow* window)
     while(!done) {
         done = true;
         for(int i=0; i<a->size()-1; i++) {
-            sleep(5);
             a->at(i)->setActive(true);
-            window->clear();
-            for (int j=0; j<a->size(); j++) {
-                window->draw(*a->at(j));
-            }
-            window->display();
+            sleep(5);
             if(a->at(i)->getHeight() > a->at(i+1)->getHeight()) {
                 done = false;
                 DataBar* temp = a->at(i+1);
@@ -29,9 +24,4 @@ void bubbleSort(std::vector<DataBar *>* a, sf::RenderWindow* window)
             a->at(i+1)->setActive(false);
         }
     }
-    window->clear();
-    for (int j=0; j<a->size(); j++) {
-        window->draw(*a->at(j));
-    }
-    window->display();
 }

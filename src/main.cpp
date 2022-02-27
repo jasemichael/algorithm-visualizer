@@ -32,7 +32,7 @@ int main() {
         dataBars[i]->setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
         window.draw(*dataBars[i]);
     }
-
+    window.display();
     std::thread first(bubbleSort, &dataBars, &window);
     while (window.isOpen())
     {
@@ -42,7 +42,12 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        window.clear();
+        for (int j=0; j<dataBars.size(); j++) {
+            window.draw(*dataBars.at(j));
+        }
+        window.display();
     }
-    first.join();
+    //first.join();
     return 0;
 }
