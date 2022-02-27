@@ -26,13 +26,10 @@ int main() {
         dataBars.push_back(db);
     }
     randomize(dataBars);
-    window.clear();
     for(int i=0; i<dataBars.size(); i++)
     {
         dataBars[i]->setPosition((i*6) + (WIDTH/2) - (50*6), HEIGHT/2);
-        window.draw(*dataBars[i]);
     }
-    window.display();
     std::thread first(bubbleSort, &dataBars, &window);
     while (window.isOpen())
     {
@@ -48,6 +45,6 @@ int main() {
         }
         window.display();
     }
-    //first.join();
+    first.join();
     return 0;
 }
